@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Използване на <meta> за задаване на кодировката-->
+    <meta charset="UTF-8">
+    <title>Самозатварящи се тагове</title>
+    <!-- Използване на <link> за свързване на външен CSS файл  -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Използване на <br> за нов ред -->
+    <p>Това е първият ред.<br>Това е вторият ред след новия ред.</p>
+
+    <!-- Използване на <hr> за хоризонтална линия -->
+    <hr>
+
+    <!-- Използване на <img> за вмъкване на изображение -->
+    <img src="https://via.placeholder.com/150" alt="Примерно изображение">
+
+    <!-- Използване на <input> за полета за въвеждане на данни -->
+    <form action="/submit">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h1>Вграждане на видео с &lt;object&gt; и &lt;param&gt;</h1>
+    <object width="640" height="360" data="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        <param name="autoplay" value="true">
+        <param name="controls" value="true">
+        Вашият браузър не поддържа този видео формат.
+    </object>
+    
+    <video width="640" height="360" controls autoplay>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Вашият браузър не поддържа вграждане на видео.
+    </video>
+
+</body>
+</html>
