@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Wiki • Anchor Links Demo</title>
+
+    <!-- Intentionally embedded CSS (bad practice) for later refactor -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: #111827;
+            color: #fff;
+            padding: 12px 16px;
+        }
+
+        nav ul {
+            margin: 8px 0 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        article {
+            padding: 12px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        article[id] {
+            scroll-margin-top: 110px;
+        }
+
+        /* important: prevents hiding behind sticky header */
+        .top {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            background: #111827;
+            color: #fff;
+            padding: 8px 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body id="top">
+    <header>
+        <h1 style="margin:0; font-size:18px;">Admin Wiki • Anchor Links Demo</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#context">Контекст</a></li>
+                <li><a href="#xhtml">XHTML</a></li>
+                <li><a href="#html5">HTML5</a></li>
+                <li><a href="#mindset">Project mindset</a></li>
+                <li><a href="#form">Форма → PHP</a></li>
+                <li><a href="#debt">Technical debt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article id="context">
+            <h2>Контекст</h2>
+            <p>Котвичките (anchor links) ни позволяват да скачаме към секции в дълъг документ.</p>
+            <p>Пример: URL-ът добавя <code>#xhtml</code> когато кликнем върху XHTML секцията.</p>
+        </article>
+
+        <article id="xhtml">
+            <h2>XHTML — строг синтаксис</h2>
+            <ul>
+                <li>Таговете трябва да са XML-валидни.</li>
+                <li>Атрибутите обикновено се пишат със стойност.</li>
+                <li>Self-closing често изглежда като <code>&lt;input /&gt;</code>.</li>
+            </ul>
+        </article>
+
+        <article id="html5">
+            <h2>HTML5 — по-гъвкав</h2>
+            <ul>
+                <li>Булеви атрибути: <code>required</code> може без стойност.</li>
+                <li>Минимален doctype: <code>&lt;!DOCTYPE html&gt;</code>.</li>
+            </ul>
+        </article>
+
+        <article id="mindset">
+            <h2>Project mindset</h2>
+            <p>Първо подреждаме структурата, после добавяме feature-и — иначе трупаме technical debt.</p>
+            <ul>
+                <li>дублиране</li>
+                <li>загуба на контекст</li>
+                <li>непоследователни id/name</li>
+            </ul>
+        </article>
+
+        <article id="form">
+            <h2>Форма → PHP</h2>
+            <p>Формата не изпраща HTML. Тя изпраща HTTP request с двойки <code>name=value</code>.</p>
+            <pre><code>&lt;form method="post" action="add-user.php"&gt;
+  &lt;input name="username"&gt;
+&lt;/form&gt;</code></pre>
+            <pre><code>&lt;?php
+echo "Hello " . htmlentities($_POST["username"]);
+?&gt;</code></pre>
+        </article>
+
+        <article id="debt">
+            <h2>Technical debt</h2>
+            <p>Без templates/components често копираме еднакви части между страници. Това е пример за early technical
+                debt.</p>
+        </article>
+    </main>
+
+    <a class="top" href="#top">↑ Top</a>
+</body>
+
+</html>

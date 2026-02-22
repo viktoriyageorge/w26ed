@@ -1,0 +1,41 @@
+<form method="post" action="add-user.php">
+
+    <fieldset>
+        <legend>Create User</legend>
+
+        <p>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" required autofocus>
+        </p>
+
+        <p>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+        </p>
+
+        <p>
+            Role:
+            <label>
+                <input type="radio" name="role" value="admin"> Admin
+            </label>
+            <label>
+                <input type="radio" name="role" value="editor"> Editor
+            </label>
+            <label>
+                <input type="radio" name="role" value="viewer"> Viewer
+            </label>
+        </p>
+
+        <p>
+            <label for="status">Status</label>
+            <select id="status" name="status">
+                <option value="active">Active</option>
+                <option value="blocked">Blocked</option>
+            </select>
+        </p>
+
+        <button>Create User</button>
+
+    </fieldset>
+
+</form>
