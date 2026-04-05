@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHub - Контакти</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <h1>CampusHub</h1>
+        <p>Студентски портал за курсове, събития и общност</p>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="courses.html">Курсове</a></li>
+                <li><a href="contact.html">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content">
+            <section>
+                <h2>Свържете се с нас</h2>
+                <p>
+                    Ако имате въпроси за курсовете, графика или събитията,
+                    попълнете формата или използвайте контактите по-долу.
+                </p>
+            </section>
+
+            <section class="form-section" style="position: relative;">
+                <span class="small-note">Пишете ни по всяко време</span>
+                <h2>Форма за запитване</h2>
+
+                <form action="#" method="post">
+                    <p>
+                        <label for="fullname">Име и фамилия</label><br>
+                        <input type="text" id="fullname" name="fullname">
+                    </p>
+
+                    <p>
+                        <label for="email">Имейл</label><br>
+                        <input type="email" id="email" name="email">
+                    </p>
+
+                    <p>
+                        <label for="topic">Тема</label><br>
+                        <select id="topic" name="topic">
+                            <option value="course">Въпрос за курс</option>
+                            <option value="event">Въпрос за събитие</option>
+                            <option value="registration">Регистрация</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="message">Съобщение</label><br>
+                        <textarea id="message" name="message" rows="6" cols="30"></textarea>
+                    </p>
+
+                    <p>
+                        <button type="submit">Изпрати</button>
+                    </p>
+                </form>
+            </section>
+
+            <section>
+                <h2>Контактна информация</h2>
+                <ul>
+                    <li><strong>Имейл:</strong> office@campushub.bg</li>
+                    <li><strong>Телефон:</strong> +359 2 123 4567</li>
+                    <li><strong>Адрес:</strong> София, бул. Университетски 15</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside>
+            <h2>Работно време</h2>
+            <p>Понеделник – Петък: 09:00 – 18:00</p>
+            <p>Събота и Неделя: почивни дни</p>
+        </aside>
+
+        <div class="clear"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CampusHub</p>
+        <p><a href="index.html">Обратно към началото</a></p>
+    </footer>
+</body>
+</html>
