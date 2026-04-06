@@ -1,0 +1,53 @@
+body {
+    background-color: #eeeeee;
+}
+
+main {
+    background-color: #fff;
+    padding: 25px;
+}
+
+header,
+footer {
+    background-color: #34495e;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+section {
+    margin-bottom: 25px;
+}
+
+article {
+    padding: 12px;
+    background-color: #ffffff;
+}
+
+.button-link {
+    display: inline-block;
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 14px;
+    text-decoration: none;
+}
+
+.button-link:hover {
+    background-color: #1f6694;
+}
+
+aside ul {
+    padding-left: 18px;
+}
+
+.small-note {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background-color: orange;
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
+}
