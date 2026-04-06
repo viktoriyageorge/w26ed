@@ -1,1 +1,51 @@
+body {
+    font-family: Verdana, sans-serif;
+    color: #111;
+}
 
+footer {
+    padding: 25px;
+}
+
+main {
+    padding: 15px;
+}
+
+aside {
+    background-color: #dfe6e9;
+    width: 30%;
+}
+
+.content {
+    width: 65%;
+}
+
+article {
+    border: 1px solid #bbb;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: #f1f1f1;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+button {
+    background-color: #27ae60;
+    padding: 12px 18px;
+}
+
+input,
+textarea,
+select {
+    border: 1px solid #999;
+}
+
+.form-section {
+    background-color: #fcfcfc;
+    padding: 20px;
+}
