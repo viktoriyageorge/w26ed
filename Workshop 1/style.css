@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    color: #222;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+main {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    float: left;
+    width: 68%;
+}
+
+aside {
+    float: right;
+    width: 28%;
+    background-color: #ecf0f1;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+article {
+    background-color: #fafafa;
+    border: 1px solid #dddddd;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.featured-event {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: crimson;
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.back-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
