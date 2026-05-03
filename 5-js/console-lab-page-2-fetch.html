@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHub Console Lab - Страница 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fffaf0;
+            color: #222;
+        }
+
+        header {
+            background-color: #6c5ce7;
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .user-card, .post-card {
+            background-color: #f8f8ff;
+            border: 1px solid #ccc;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+
+        #api-results {
+            min-height: 80px;
+            padding: 12px;
+            background-color: #f4f4f4;
+            border: 1px dashed #aaa;
+        }
+
+        button {
+            padding: 10px 14px;
+            border: none;
+            background-color: #6c5ce7;
+            color: white;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        footer {
+            background-color: #6c5ce7;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Работа с външни данни</h1>
+        <p>Страница за упражнения с fetch и JSON</p>
+    </header>
+
+    <main>
+        <section id="api-intro">
+            <h2>Данни от сървър</h2>
+            <p>
+                Тази страница е подготвена за упражнения с публичен JSON ресурс.
+                Данните ще се зареждат чрез JavaScript от Console.
+            </p>
+
+            <button id="load-users-button">Бутон за експеримент</button>
+            <button id="clear-results-button">Изчисти резултатите</button>
+        </section>
+
+        <section>
+            <h2>Резултати</h2>
+            <div id="api-results">
+                Тук ще се появят данни, добавени чрез JavaScript.
+            </div>
+        </section>
+
+        <section>
+            <h2>Локални примерни карти</h2>
+
+            <article class="user-card">
+                <h3>Иван Петров</h3>
+                <p>Специалност: Софтуерно инженерство</p>
+            </article>
+
+            <article class="user-card">
+                <h3>Мария Георгиева</h3>
+                <p>Специалност: Компютърни науки</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CampusHub API Lab</p>
+    </footer>
+</body>
+</html>
