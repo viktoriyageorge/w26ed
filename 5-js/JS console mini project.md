@@ -1,311 +1,522 @@
-# 🧪 Мини проект: Интерактивна страница само чрез Console
+# 🧪 JavaScript Console Lab: Интерактивна страница + външни JSON данни
 
 ## Цел
 
-Целта на упражнението е да се покаже, че JavaScript може да променя вече заредена HTML страница директно от браузъра.
+Целта на упражнението е да се покаже как JavaScript може да променя вече заредена HTML страница директно от **Console** в браузъра.
 
 Не се редактират HTML, CSS или JS файлове.  
-Всичко се изпълнява през **Console** в Developer Tools.
+Всичко се изпълнява през **Developer Tools → Console**.
 
 ---
 
-## Какво ще се направи?
+## Какво ще се упражни
 
-От вече заредена страница ще се създаде малък интерактивен блок, който съдържа:
-
-- заглавие
-- текст
-- бутон
-- списък
-- промяна при клик
-
----
-
-## Подготовка
-
-1. Отваряне на произволна HTML страница.
-2. Отваряне на Developer Tools:
-   - F12
-   - или Right click → Inspect
-3. Избор на таб **Console**.
-4. Изпълнение на JavaScript командите една по една.
+- `console.log`
+- избор на HTML елементи
+- промяна на текст
+- промяна на стил
+- добавяне на нови елементи
+- събития при клик
+- `fetch`
+- работа с JSON данни от публичен API
 
 ---
 
-# Част 1: Създаване на нова секция
+## Използвани файлове
+
+1. `console-lab-page-1.html`  
+   Страница за упражнения с DOM, стилове, елементи и събития.
+
+2. `console-lab-page-2-fetch.html`  
+   Страница за упражнения с `fetch` и JSON данни.
+
+---
+
+# Част 1: Първа HTML страница
+
+Отваря се файлът:
+
+```text
+console-lab-page-1.html
+```
+
+След това се отваря:
+
+```text
+Developer Tools → Console
+```
+
+---
+
+## 1. Първи Console примери
 
 ```javascript
-let section = document.createElement("section");
-section.style.backgroundColor = "#f5f5f5";
-section.style.border = "1px solid #ccc";
-section.style.padding = "20px";
-section.style.margin = "20px";
-document.body.appendChild(section);
+console.log("Console работи");
+```
+
+```javascript
+console.log(document);
+```
+
+```javascript
+console.log(document.title);
+```
+
+```javascript
+console.log(document.body);
 ```
 
 ## Какво се случва?
 
-- създава се нов HTML елемент `<section>`
-- добавят се CSS стилове чрез JavaScript
-- секцията се добавя в края на страницата
+- Console извежда текст
+- показва се HTML документът
+- вижда се заглавието на страницата
+- може да се провери структурата на страницата
 
 ---
 
-# Част 2: Добавяне на заглавие
+## Мини задача 1
+
+Изпълнение в Console:
 
 ```javascript
-let title = document.createElement("h2");
-title.textContent = "JavaScript мини проект";
-section.appendChild(title);
+console.log("Име: ...");
+console.log("Специалност: ...");
 ```
 
-## Какво се случва?
-
-- създава се заглавие
-- задава се текст
-- заглавието се добавя в секцията
+След изпълнение се прави screenshot на Console.
 
 ---
 
-# Част 3: Добавяне на описание
+# Част 2: Избор и промяна на елементи
+
+## 2. Смяна на заглавие
 
 ```javascript
-let text = document.createElement("p");
-text.textContent = "Този блок е създаден директно от Console.";
-section.appendChild(text);
+document.querySelector("h1").textContent = "JavaScript променя страницата";
 ```
 
----
-
-# Част 4: Добавяне на списък
+## 3. Смяна на подзаглавие
 
 ```javascript
-let list = document.createElement("ul");
-
-let item1 = document.createElement("li");
-item1.textContent = "Създаване на елементи";
-
-let item2 = document.createElement("li");
-item2.textContent = "Промяна на съдържание";
-
-let item3 = document.createElement("li");
-item3.textContent = "Работа със събития";
-
-list.appendChild(item1);
-list.appendChild(item2);
-list.appendChild(item3);
-
-section.appendChild(list);
+document.getElementById("subtitle").textContent = "Текстът е променен чрез Console";
 ```
 
-## Какво се случва?
-
-Създава се списък с три елемента и се добавя към страницата.
-
----
-
-# Част 5: Добавяне на бутон
+## 4. Промяна на фон
 
 ```javascript
-let button = document.createElement("button");
-button.textContent = "Промени блока";
-button.style.padding = "10px 15px";
-button.style.backgroundColor = "#2c3e50";
-button.style.color = "white";
-button.style.border = "none";
-button.style.cursor = "pointer";
+document.body.style.backgroundColor = "#eaf7ff";
+```
 
-section.appendChild(button);
+## 5. Промяна на навигацията
+
+```javascript
+document.getElementById("main-nav").style.backgroundColor = "#0984e3";
 ```
 
 ---
 
-# Част 6: Добавяне на действие при клик
+## Мини задача 2
 
-```javascript
-button.addEventListener("click", function () {
-    title.textContent = "Блокът беше променен!";
-    text.textContent = "Промяната се случи след натискане на бутона.";
-    section.style.backgroundColor = "#dff9fb";
-});
-```
+Да се промени:
 
-## Какво се случва?
+- заглавието на страницата
+- фонът на страницата
+- цветът на навигацията
 
-При натискане на бутона:
-
-- заглавието се променя
-- текстът се променя
-- фонът на секцията се променя
+След изпълнение се прави screenshot на страницата.
 
 ---
 
-# Част 7: Добавяне на нов елемент при клик
+# Част 3: Работа с повече елементи
+
+## 6. Избор на всички course cards
 
 ```javascript
-button.addEventListener("click", function () {
-    let newItem = document.createElement("li");
-    newItem.textContent = "Нов елемент, добавен при клик";
-    list.appendChild(newItem);
-});
+let cards = document.querySelectorAll(".course-card");
+console.log(cards);
+console.log(cards.length);
 ```
 
-## Какво се случва?
-
-Всеки път при натискане на бутона се добавя нов елемент в списъка.
-
----
-
-# Част 8: Проверка с console.log
+## 7. Промяна на първата карта
 
 ```javascript
-console.log(section);
-console.log(title.textContent);
-console.log(list.children.length);
+cards[0].style.backgroundColor = "#dff9fb";
+cards[0].style.border = "2px solid #00cec9";
 ```
 
-## Какво се проверява?
-
-- дали секцията съществува
-- какъв е текстът на заглавието
-- колко елемента има в списъка
-
----
-
-# Цял код наведнъж
-
-Кодът може да се изпълни и наведнъж в Console.
+## 8. Промяна на всички карти
 
 ```javascript
-let section = document.createElement("section");
-section.style.backgroundColor = "#f5f5f5";
-section.style.border = "1px solid #ccc";
-section.style.padding = "20px";
-section.style.margin = "20px";
-
-let title = document.createElement("h2");
-title.textContent = "JavaScript мини проект";
-
-let text = document.createElement("p");
-text.textContent = "Този блок е създаден директно от Console.";
-
-let list = document.createElement("ul");
-
-let item1 = document.createElement("li");
-item1.textContent = "Създаване на елементи";
-
-let item2 = document.createElement("li");
-item2.textContent = "Промяна на съдържание";
-
-let item3 = document.createElement("li");
-item3.textContent = "Работа със събития";
-
-list.appendChild(item1);
-list.appendChild(item2);
-list.appendChild(item3);
-
-let button = document.createElement("button");
-button.textContent = "Промени блока";
-button.style.padding = "10px 15px";
-button.style.backgroundColor = "#2c3e50";
-button.style.color = "white";
-button.style.border = "none";
-button.style.cursor = "pointer";
-
-section.appendChild(title);
-section.appendChild(text);
-section.appendChild(list);
-section.appendChild(button);
-document.body.appendChild(section);
-
-button.addEventListener("click", function () {
-    title.textContent = "Блокът беше променен!";
-    text.textContent = "Промяната се случи след натискане на бутона.";
-    section.style.backgroundColor = "#dff9fb";
-
-    let newItem = document.createElement("li");
-    newItem.textContent = "Нов елемент, добавен при клик";
-    list.appendChild(newItem);
-
-    console.log("Бутонът беше натиснат.");
-    console.log("Брой елементи в списъка:", list.children.length);
+cards.forEach(function(card) {
+    card.style.borderRadius = "10px";
+    card.style.padding = "20px";
 });
 ```
 
 ---
 
-# Мини задачи
+## Мини задача 3
 
-## Задача 1
+Да се изберат всички `.event-card` елементи и да се промени:
 
-Промяна на текста на бутона.
+- фонът
+- рамката
+- разстоянието вътре в картата
+
+След изпълнение се прави screenshot.
+
+---
+
+# Част 4: Добавяне на нов HTML елемент
+
+## 9. Създаване на нов курс
+
+```javascript
+let newCourse = document.createElement("article");
+newCourse.className = "course-card";
+newCourse.innerHTML = "<h3>JavaScript</h3><p>Интерактивност в браузъра.</p>";
+
+document.getElementById("courses-section").appendChild(newCourse);
+```
+
+## Какво се случва?
+
+- създава се нов `<article>`
+- добавя се клас
+- добавя се HTML съдържание
+- елементът се поставя в секцията с курсове
+
+---
+
+## Мини задача 4
+
+Да се добави ново събитие в секцията `events-section`.
+
+Примерно съдържание:
+
+- заглавие: `DevTools практика`
+- описание: `Упражнение с Console и JavaScript`
+
+След изпълнение се прави screenshot.
+
+---
+
+# Част 5: Събитие при клик
+
+## 10. Реакция при натискане на бутон
+
+```javascript
+let button = document.getElementById("demo-button");
+
+button.addEventListener("click", function() {
+    alert("Бутонът беше натиснат");
+});
+```
+
+## 11. Промяна на страница при клик
+
+```javascript
+button.addEventListener("click", function() {
+    document.getElementById("welcome-section").style.backgroundColor = "#ffeaa7";
+});
+```
+
+---
+
+## Мини задача 5
+
+Да се добави действие към бутона, така че при натискане:
+
+- да се промени текстът на бутона
+- да се промени цветът на секцията
+- да се изпише съобщение в Console
 
 Пример:
 
 ```javascript
-button.textContent = "Натисни ме";
+console.log("Потребителят натисна бутона");
 ```
+
+След изпълнение се прави screenshot след натиснат бутон.
 
 ---
 
-## Задача 2
+# Част 6: Втора HTML страница + fetch
 
-Промяна на цвета на заглавието.
+Отваря се файлът:
 
-Пример:
+```text
+console-lab-page-2-fetch.html
+```
+
+Тази част използва публичния ресурс:
+
+```text
+https://jsonplaceholder.typicode.com
+```
+
+JSONPlaceholder предоставя безплатен fake REST API за тестове и прототипи.
+
+---
+
+## 12. Първи fetch пример
 
 ```javascript
-title.style.color = "darkblue";
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+    });
+```
+
+## Какво се случва?
+
+- изпраща се заявка към външен ресурс
+- получава се JSON отговор
+- JSON се преобразува към JavaScript object
+- резултатът се показва в Console
+
+---
+
+## Мини задача 6
+
+Да се зареди друг todo запис:
+
+```javascript
+https://jsonplaceholder.typicode.com/todos/5
+```
+
+Да се направи screenshot на Console с получения обект.
+
+---
+
+# Част 7: Показване на fetch резултат в страницата
+
+## 13. Зареждане на потребител
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/users/1")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(user) {
+        let results = document.getElementById("api-results");
+
+        results.innerHTML = `
+            <article class="user-card">
+                <h3>${user.name}</h3>
+                <p>Email: ${user.email}</p>
+                <p>Град: ${user.address.city}</p>
+            </article>
+        `;
+    });
+```
+
+## Какво се случва?
+
+- данните идват от външен JSON ресурс
+- JavaScript създава HTML
+- страницата се обновява без презареждане
+
+---
+
+## Мини задача 7
+
+Да се зареди потребител с различно ID:
+
+```text
+/users/2
+/users/3
+/users/4
+```
+
+Да се визуализират:
+
+- име
+- email
+- град
+
+След изпълнение се прави screenshot на страницата.
+
+---
+
+# Част 8: Зареждане на няколко записа
+
+## 14. Зареждане на posts
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(posts) {
+        let results = document.getElementById("api-results");
+
+        results.innerHTML = "";
+
+        posts.slice(0, 5).forEach(function(post) {
+            let article = document.createElement("article");
+            article.className = "post-card";
+
+            article.innerHTML = `
+                <h3>${post.title}</h3>
+                <p>${post.body}</p>
+            `;
+
+            results.appendChild(article);
+        });
+    });
 ```
 
 ---
 
-## Задача 3
+## Мини задача 8
 
-Добавяне на още един първоначален елемент в списъка.
-
----
-
-## Задача 4
-
-Промяна на действието при клик така, че:
-
-- фонът да става друг цвят
-- заглавието да има различен текст
-- да се добавя различно съобщение в списъка
-
----
-
-## Задача 5
-
-Добавяне на втори бутон, който скрива секцията.
+Да се промени примерът така, че да показва само първите 3 posts.
 
 Подсказка:
 
 ```javascript
-section.style.display = "none";
+posts.slice(0, 3)
 ```
+
+След изпълнение се прави screenshot.
+
+---
+
+# Част 9: Fetch при натискане на бутон
+
+## 15. Зареждане на users при клик
+
+```javascript
+let loadButton = document.getElementById("load-users-button");
+
+loadButton.addEventListener("click", function() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(users) {
+            let results = document.getElementById("api-results");
+
+            results.innerHTML = "";
+
+            users.slice(0, 5).forEach(function(user) {
+                let article = document.createElement("article");
+                article.className = "user-card";
+
+                article.innerHTML = `
+                    <h3>${user.name}</h3>
+                    <p>${user.email}</p>
+                    <p>${user.company.name}</p>
+                `;
+
+                results.appendChild(article);
+            });
+        });
+});
+```
+
+---
+
+## Мини задача 9
+
+Да се добави действие към бутона `clear-results-button`, което изчиства резултатите.
+
+Подсказка:
+
+```javascript
+document.getElementById("api-results").innerHTML = "";
+```
+
+След изпълнение се прави screenshot преди и след изчистване.
+
+---
+
+# Финална мини задача
+
+Във втората страница да се направи малък блок с данни от API:
+
+Изисквания:
+
+- да се използва `fetch`
+- да се вземат данни от JSONPlaceholder
+- да се покажат поне 3 елемента в страницата
+- да има поне една промяна на стил чрез JavaScript
+
+Примерни ресурси:
+
+```text
+https://jsonplaceholder.typicode.com/users
+https://jsonplaceholder.typicode.com/posts
+https://jsonplaceholder.typicode.com/todos
+```
+
+Резултатът се предава като screenshot.
 
 ---
 
 # Важни понятия
 
-## `document.createElement`
+## `console.log`
 
-Създава нов HTML елемент.
+Показва информация в Console.
 
 ```javascript
-document.createElement("p");
+console.log("Test");
+```
+
+---
+
+## `document.querySelector`
+
+Избира първия елемент, който отговаря на CSS selector.
+
+```javascript
+document.querySelector("h1");
+```
+
+---
+
+## `document.querySelectorAll`
+
+Избира всички елементи, които отговарят на CSS selector.
+
+```javascript
+document.querySelectorAll(".course-card");
 ```
 
 ---
 
 ## `textContent`
 
-Задава или променя текстово съдържание.
+Променя текст.
 
 ```javascript
-title.textContent = "Нов текст";
+element.textContent = "Нов текст";
+```
+
+---
+
+## `style`
+
+Променя CSS чрез JavaScript.
+
+```javascript
+element.style.backgroundColor = "pink";
+```
+
+---
+
+## `createElement`
+
+Създава нов HTML елемент.
+
+```javascript
+document.createElement("article");
 ```
 
 ---
@@ -315,17 +526,7 @@ title.textContent = "Нов текст";
 Добавя елемент вътре в друг елемент.
 
 ```javascript
-section.appendChild(title);
-```
-
----
-
-## `style`
-
-Позволява промяна на CSS чрез JavaScript.
-
-```javascript
-section.style.backgroundColor = "pink";
+parent.appendChild(child);
 ```
 
 ---
@@ -335,23 +536,39 @@ section.style.backgroundColor = "pink";
 Добавя реакция при събитие.
 
 ```javascript
-button.addEventListener("click", function () {
+button.addEventListener("click", function() {
     console.log("click");
 });
 ```
 
 ---
 
+## `fetch`
+
+Изпраща заявка към ресурс и връща отговор.
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+    });
+```
+
+---
+
 # Обобщение
 
-Чрез Console могат да се изпълняват JavaScript команди директно върху заредена страница.
+JavaScript в Console позволява директни експерименти със заредена страница.
 
-С JavaScript може да се:
+Чрез Console могат да се упражняват:
 
-- създават HTML елементи
-- променя текст
-- променя CSS
-- добавят елементи в страницата
-- реагира на действия на потребителя
+- промяна на HTML
+- промяна на CSS
+- добавяне на елементи
+- реакции при събития
+- зареждане на външни JSON данни чрез fetch
 
-Промените, направени през Console, са временни и изчезват при презареждане на страницата.
+Промените са временни и изчезват при презареждане на страницата.
