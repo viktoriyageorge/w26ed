@@ -1,5 +1,4 @@
 # 🧩 JavaScript – Регистрационна форма
-
 ## 🎯 Цел
 
 Създаване на форма с:
@@ -59,6 +58,55 @@ const response = await fetch("...");
 
 ---
 
+## 📌 GET заявка
+
+```javascript
+const response = await fetch("https://jsonplaceholder.typicode.com/users");
+const users = await response.json();
+```
+
+---
+
+## ❓ Защо има 2 пъти await
+
+👉 Има две отделни асинхронни операции
+
+### 1. fetch(...)
+
+```javascript
+const response = await fetch(...);
+```
+
+- изпраща HTTP заявка
+- връща Response обект (НЕ данните)
+
+---
+
+### 2. response.json()
+
+```javascript
+const users = await response.json();
+```
+
+- прочита отговора
+- преобразува JSON в JavaScript обект
+- връща реалните данни
+
+---
+
+## 🧠 Интуитивно обяснение
+
+- fetch → получаване на пратка
+- json() → отваряне на пратката
+
+---
+
+## ⚠️ Важно
+
+Response ≠ Data
+
+---
+
 ## 📌 Вземане на стойности
 
 ```javascript
@@ -96,9 +144,7 @@ let isValid = true;
 if (username.length < 3) {
     isValid = false;
 }
-```
 
-```javascript
 if (!isValid) {
     return;
 }
@@ -108,21 +154,6 @@ if (!isValid) {
 
 - `isValid` следи състоянието
 - при грешки процесът спира
-
----
-
-## 📌 GET заявка
-
-```javascript
-const response = await fetch("https://jsonplaceholder.typicode.com/users");
-const users = await response.json();
-```
-
-### Обяснение
-
-- `fetch` изпраща заявка
-- `.json()` преобразува отговор в обект
-- резултатът е масив от users
 
 ---
 
